@@ -58,19 +58,26 @@ class App extends React.Component {
    * @returns {XML} - A React component for the specified view
    */
   setView() {
-    if (this.state.view === 'Results') {
-      return (
-        <Results
-          updateRiskScores={this.updateRiskScores}
-          updateView={this.updateView}
-          hideNav={this.state.hideNav}
-          updateChangedProperty={this.updateChangedProperty}
-          options={this.state.options}
-          removeOption={this.removeOption}
-          intl={this.props.intl}
-          currentLocale={this.props.currentLocale}
-        />
-      );
+    if (this.state.view === 'Results' && typeof this.props.intl !== 'undefined') {
+      try {
+        window.alert("======")
+        return (
+          <Results
+            updateRiskScores={this.updateRiskScores}
+            updateView={this.updateView}
+            hideNav={this.state.hideNav}
+            updateChangedProperty={this.updateChangedProperty}
+            options={this.state.options}
+            removeOption={this.removeOption}
+            intl={this.props.intl}
+            currentLocale={this.props.currentLocale}
+          />
+        );
+      }
+      catch(e){
+        console.log('error',e)
+      }
+      
     } else if (this.state.view === 'Risk Factors') {
       return (
         <RiskFactors
