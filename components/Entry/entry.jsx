@@ -52,6 +52,7 @@ class Entry extends React.Component {
       );
       }
       catch(e){
+        alert("==========")
         console.log('error',e)
       }
     }
@@ -68,6 +69,7 @@ class Entry extends React.Component {
     );
     }
     catch(e){
+      alert("==========")
       window.alert("hello")
       console.log('error',e)
     }
