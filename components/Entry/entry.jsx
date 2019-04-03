@@ -40,6 +40,7 @@ class Entry extends React.Component {
       || localeData.en;
 
     if (this.props.displayErrorScreen) {
+      try{
       return (
         <IntlProvider
           locale={this.state.locale}
@@ -49,8 +50,13 @@ class Entry extends React.Component {
           <ErrorContainer authError />
         </IntlProvider>
       );
+      }
+      catch(e){
+        console.log('error',e)
+      }
     }
 
+    try {
     return (
       <IntlProvider
         locale={this.state.locale}
@@ -60,6 +66,11 @@ class Entry extends React.Component {
         <App updateLocale={this.updateLocale} currentLocale={this.state.locale} />
       </IntlProvider>
     );
+    }
+    catch(e){
+      window.alert("hello")
+      console.log('error',e)
+    }
   }
 }
 Entry.propTypes = {
